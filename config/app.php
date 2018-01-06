@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Brussels',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,7 @@ return [
         Jiri\Providers\EventServiceProvider::class,
         Jiri\Providers\RouteServiceProvider::class,
 
+	    Laravel\Passport\PassportServiceProvider::class,
     ],
 
     /*
