@@ -4,6 +4,7 @@ namespace Jiri\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Jiri\{ Policies\UserPolicy, User };
 use Laravel\Passport\Passport;
 
 class AuthServiceProvider extends ServiceProvider
@@ -15,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'Jiri\Model' => 'Jiri\Policies\ModelPolicy',
+        User::class => UserPolicy::class,
     ];
 
     /**

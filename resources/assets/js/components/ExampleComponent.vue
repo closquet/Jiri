@@ -6,7 +6,7 @@
                     <div class="panel-heading">Example Component</div>
 
                     <div class="panel-body">
-                        I'm an example component!
+                        salut {{currentUser.name}}
                     </div>
                 </div>
             </div>
@@ -16,11 +16,18 @@
 
 <script>
     export default {
+        data(){
+            return{
+                currentUser : {
+                    name:'',
+                },
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
             axios.get('/api/user')
                 .then(response => {
                     console.log(response.data);
+                    this.currentUser.name = response.data.name
                 })
         }
     }
