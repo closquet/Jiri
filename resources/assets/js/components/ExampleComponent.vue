@@ -19,6 +19,10 @@
         data(){
             return{
                 currentUser : {
+                    available:'',
+                    avatar:'',
+                    company:'',
+                    is_admin:'',
                     name:'',
                 },
             }
@@ -29,31 +33,12 @@
                 axios.post('/login',{'email':'admin@jiri.be','password':'24012018'})
                     .then(response => {
 
-                        console.log(response.data);
-                        this.currentUser.name = response.data.name
+                        this.currentUser = response.data;
+                        console.log(response.data.error);
                     });
             }
         },
         mounted() {
-
-            /*console.log('/api/user/all');
-            axios.get('/api/user/all')
-                .then(response => {
-
-                    console.log(response.data);
-                    this.currentUser.name = response.data.name
-                });
-            const data = {
-                name: 'adminaccesstoken',
-                scopes: []
-            };
-            axios.post('/oauth/personal-access-tokens', data)
-                .then(response => {
-                    console.log(response.data.accessToken);
-                })
-                .catch (response => {
-                    // List errors on response...
-                });*/
 
         }
     }

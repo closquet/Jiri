@@ -43266,6 +43266,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             currentUser: {
+                available: '',
+                avatar: '',
+                company: '',
+                is_admin: '',
                 name: ''
             }
         };
@@ -43276,34 +43280,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             console.log('/login');
-            axios.post('/login', { 'email': 'admin@jiri.be', 'password': '24012018' }).then(function (response) {
+            axios.post('/login', { 'email': 'admin@jiri.be', 'password': 'q24012018' }).then(function (response) {
 
-                console.log(response.data);
-                _this.currentUser.name = response.data.name;
+                _this.currentUser = response.data;
+                console.log(response.data.error);
             });
         }
     },
-    mounted: function mounted() {
-
-        /*console.log('/api/user/all');
-        axios.get('/api/user/all')
-            .then(response => {
-                 console.log(response.data);
-                this.currentUser.name = response.data.name
-            });
-        const data = {
-            name: 'adminaccesstoken',
-            scopes: []
-        };
-        axios.post('/oauth/personal-access-tokens', data)
-            .then(response => {
-                console.log(response.data.accessToken);
-            })
-            .catch (response => {
-                // List errors on response...
-            });*/
-
-    }
+    mounted: function mounted() {}
 });
 
 /***/ }),
