@@ -5,7 +5,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Example Component</div>
 
-                    <div class="panel-body">
+                    <div @click="sub" class="panel-body">
                         salut {{currentUser.name}}
                     </div>
                 </div>
@@ -23,12 +23,38 @@
                 },
             }
         },
+        methods:{
+            sub(){
+                console.log('/login');
+                axios.post('/login',{'email':'admin@jiri.be','password':'24012018'})
+                    .then(response => {
+
+                        console.log(response.data);
+                        this.currentUser.name = response.data.name
+                    });
+            }
+        },
         mounted() {
-            axios.get('/api/user')
+
+            /*console.log('/api/user/all');
+            axios.get('/api/user/all')
                 .then(response => {
+
                     console.log(response.data);
                     this.currentUser.name = response.data.name
+                });
+            const data = {
+                name: 'adminaccesstoken',
+                scopes: []
+            };
+            axios.post('/oauth/personal-access-tokens', data)
+                .then(response => {
+                    console.log(response.data.accessToken);
                 })
+                .catch (response => {
+                    // List errors on response...
+                });*/
+
         }
     }
 </script>

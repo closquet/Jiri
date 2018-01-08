@@ -20,6 +20,11 @@ class UserPolicy
     {
         //
     }
+	
+	public function index(User $user, User $model)
+	{
+		true;
+	}
 
     /**
      * Determine whether the user can create models.
